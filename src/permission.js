@@ -24,7 +24,7 @@ router.beforeEach(async(to, from, next) => {
     if (to.path === '/login') {
       next({ path: '/welcome' })
       NProgress.done()
-    } else if (to.path === '/welcome') {
+    } else if (to.path === '/welcome' || to.path === '/') {
       next()
     } else {
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
