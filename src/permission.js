@@ -21,10 +21,10 @@ router.beforeEach(async(to, from, next) => {
   document.title = getPageTitle(to.meta.title)
   console.log(to, from)
   if (getToken()) {
-    if (to.path === '/login') {
+    if (to.path === '/login' || to.path === '/') {
       next({ path: '/welcome' })
       NProgress.done()
-    } else if (to.path === '/welcome' || to.path === '/') {
+    } else if (to.path === '/welcome') {
       next()
     } else {
       const hasRoles = store.getters.roles && store.getters.roles.length > 0
